@@ -9,7 +9,9 @@ from schedule.models import *
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        User.objects.create(username='admin')
+        admin, _ = User.objects.get_or_create(username='admin', is_superuser=True, is_staff=True)
+        admin.set_password('admin')
+        admin.save()
 
         location, _ = Location.objects.get_or_create(
             location_name='Location 1',
