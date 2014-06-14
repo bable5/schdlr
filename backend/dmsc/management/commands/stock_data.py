@@ -36,8 +36,11 @@ class Command(BaseCommand):
 
         dates = [_1, _2, _3, _4]
 
+        for i in range(10):
+            dates.append(dates[-1] + timedelta(hours=1))
+
         for i, date in enumerate(dates):
-            event = Event.objects.create(
+            Event.objects.create(
                 event_name='Testing Event {}'.format(i),
                 setup_start=date,
                 setup_end=timezone.now(),
@@ -46,7 +49,7 @@ class Command(BaseCommand):
                 teardown_start=timezone.now(),
                 teardown_end=date + timedelta(hours=1),
                 status='pending',
-                visibility='public',
+                visibility='public' if i != 1 else 'private',
                 location=Location.objects.get(location_name='Location 1'),
                 contact_name='John Richard',
                 contact_email='john.richard@gmail.com'
