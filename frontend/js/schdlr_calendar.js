@@ -1,8 +1,10 @@
+//var host = "http://localhost"
+var host = http://162.243.62.74'
 var port = "8000";
-var baseCalendarUrl = 'http://162.243.62.74:'+port+'/calendarevent/';
-var baseLocationsUrl = 'http://162.243.62.74:'+port+'/location/';
-var baseDisciplinesUrl = 'http://162.243.62.74:'+port+'/discipline/';
-var baseEventDetailsUrl = 'http://162.243.62.74:'+port+'/event/';
+var baseCalendarUrl = host + ':'+port+'/calendarevent/';
+var baseLocationsUrl = host + ':'+port+'/location/';
+var baseDisciplinesUrl = host + ':'+port+'/discipline/';
+var baseEventDetailsUrl = host + ':'+port+'/event/';
 
 $(document).ready(function() {
     getSelectLocationIDs = function () {
