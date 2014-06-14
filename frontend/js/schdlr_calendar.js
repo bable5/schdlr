@@ -6,6 +6,16 @@ $(document).ready(function() {
         $().get()
     }
 
+
+    $('#calendar').fullCalendar({
+        dayClick: function() {
+            $('#AddNewEventModal').modal('show');
+             
+            //alert('a day has been clicked!');
+        }
+    });
+
+
     var getData = function(){
 
         return [{
