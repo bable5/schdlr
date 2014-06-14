@@ -5,6 +5,10 @@ from .models import Event
 from .models import Resource
 
 
+class EventAdmin(admin.ModelAdmin):
+    list_display = ['event_name', 'setup_start', 'teardown_end']
+
+
 admin.site.register(Location)
-admin.site.register(Event)
+admin.site.register(Event, EventAdmin)
 admin.site.register(Resource)
