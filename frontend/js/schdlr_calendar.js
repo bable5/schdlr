@@ -69,7 +69,7 @@ $(document).ready(function() {
 			right: 'month,agendaWeek,agendaDay'
 		},
 		defaultDate: '2014-06-14',
-		editable: true,
+		editable: false,
 		events: {
 			url: 'http://localhost:8000/calendarevent/',
 			error: function() {

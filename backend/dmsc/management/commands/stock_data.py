@@ -15,14 +15,14 @@ class Command(BaseCommand):
         admin.set_password('admin')
         admin.save()
 
-        for i in range (5):
+        for i in range(5):
             Location.objects.get_or_create(
                 location_name='Location {}'.format(i),
                 square_footage=100,
                 capacity=100
             )
 
-        resource = Resource.objects.get_or_create(
+        Resource.objects.get_or_create(
             is_fixed=True,
             resource_type="speakers",
             description="Bose 5.1",
@@ -54,3 +54,19 @@ class Command(BaseCommand):
                 contact_name='John Richard',
                 contact_email='john.richard@gmail.com'
             )
+
+        start = timezone.now() - timedelta(hours=1)
+        Event.objects.create(
+            event_name='Testing Event {}'.format(i),
+            setup_start=start,
+            setup_end=start + timedelta(minutes=30),
+            event_start=start + timedelta(minutes=30),
+            event_end=start + timedelta(hours=2.5),
+            teardown_start=start + timedelta(hours=2.5),
+            teardown_end=start + timedelta(hours=3),
+            status='pending',
+            visibility='public' if i != 1 else 'private',
+            location=Location.objects.get(location_name='Location 1'),
+            contact_name='John Richard',
+            contact_email='john.richard@gmail.com'
+        )

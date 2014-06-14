@@ -31,9 +31,10 @@ class Event(models.Model):
 
     def title(self):
         if self.visibility == 'private':
-            return '** Private **'
+            return "** Private ** ({})".format(self.location.location_name)
         else:
-            return self.event_name
+            return "{} ({})".format(self.event_name, self.location.location_name)
+
 
 class Location(models.Model):
     square_footage = models.IntegerField()
