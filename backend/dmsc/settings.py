@@ -41,6 +41,7 @@ INSTALLED_APPS += (
     'rest_framework',
     'schedule',
     'dmsc',
+    'rest_framework_swagger',
 )
 
 MIDDLEWARE_CLASSES = (
