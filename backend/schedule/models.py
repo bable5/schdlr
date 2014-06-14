@@ -28,6 +28,7 @@ class Event(models.Model):
     contact_name = models.CharField(max_length=255, blank=False)
     contact_phone_number = models.CharField(max_length=11, blank=True)
     contact_email = models.CharField(max_length=255)
+    discipline = models.ManyToManyField('Discipline')
 
     def title(self):
         if self.visibility == 'private':
@@ -47,6 +48,9 @@ class Location(models.Model):
     contact_name = models.CharField(max_length=255, blank=False)
     contact_phone_number = models.CharField(max_length=11, blank=True)
     contact_email = models.CharField(max_length=255)
+    
+    def __unicode__(self):
+        return u'%s - %s' % (self.location_name)
 
 
 class Resource(models.Model):
@@ -54,3 +58,14 @@ class Resource(models.Model):
     resource_type = models.CharField(max_length=255, blank=False)
     description = models.CharField(max_length=255, blank=True)
     location = models.ForeignKey(Location, null=True)
+    
+    def __unicode__(self):
+        return u'%s - %s' % (self.resource_type, self.description)
+
+
+class Discipline(models.Model):
+    description = models.CharField(max_length=255, blank=True)
+    name = models.CharField(max_length=255, blank=False)
+    
+    def __unicode__(self):
+        return u'%s - %s' % (self.name, self.description)

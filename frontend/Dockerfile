@@ -34,5 +34,3 @@ EXPOSE 80
 ADD . /var/www
 
 WORKDIR /opt/openresty/nginx
-
-CMD ["sbin/nginx -c conf/nginx.conf"]

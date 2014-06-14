@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 
 from rest_framework import viewsets, routers
 
-from schedule.models import Location, Resource, Event
+from schedule.models import Location, Resource, Event, Discipline
 from schedule.feeds import EventFeed
 from schedule.serializers import LocationSerializer
 
@@ -30,10 +30,16 @@ class EventViewSet(viewsets.ModelViewSet):
     filter_fields = ('location', 'visibility', 'status')
 
 
+class DisciplineViewSet(viewsets.ModelViewSet):
+    model = Discipline
+    filter_fields = ('name')
+
+
 router = routers.DefaultRouter()
 router.register(r'location', LocationViewSet)
 router.register(r'resource', ResourceViewSet)
 router.register(r'event', EventViewSet)
+router.register(r'discipline', DisciplineViewSet)
 
 urlpatterns = patterns('',
     url(r'^', include(router.urls)),

@@ -30,10 +30,17 @@ class Command(BaseCommand):
                             'RTI Office': {'letterMap': 'M', 'description' : 'Office', 'capacity': 100, 'square_footage': 1000, 'price' : 100},
                             'Social Club Office': {'letterMap': 'N', 'description' : 'Office', 'capacity': 100, 'square_footage': 1000, 'price' : 100}
         }
+        
+        LocalDisciplineData={ 'Education' : 'Cooking Class', 'Visual Art Education' : 'Art Class', 'Literary' : 'Book Club', 'Dance/Movement' : 'Interpretive Dance'}
 
+        for desc in LocalDisciplineData.iterkeys():
+            Discipline.objects.get_or_create(
+                name = desc,
+                description = LocalDisciplineData[desc],
+            )
+            
+        
         for loc_name in LocalLocationData.iterkeys():
-            import logging
-            logging.error(LocalLocationData[loc_name])
             Location.objects.get_or_create(
                 location_name=loc_name,
                 square_footage=LocalLocationData[loc_name]['square_footage'],

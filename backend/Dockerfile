@@ -10,3 +10,8 @@ RUN pip install -r requirements.txt
 ADD . /code
 
 EXPOSE 8000
+
+RUN python manage.py syncdb --noinput
+RUN python manage.py stock_data
+
+CMD python manage.py runserver 0.0.0.0:8000

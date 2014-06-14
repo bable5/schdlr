@@ -6,3 +6,6 @@ rebuild:
 	sudo fig run backend python manage.py syncdb --noinput
 	sudo fig run backend python manage.py stock_data
 	sudo fig up backend
+
+deploy:
+	./deploy.sh

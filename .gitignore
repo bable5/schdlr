@@ -4,3 +4,5 @@ puppet/modules
 .idea
 /nbproject/private/
 /nbproject/
+.vagrant
+.tmp
