@@ -1,6 +1,12 @@
 from rest_framework import serializers
 
-from .models import Event
+from .models import Location, Event
+
+
+class LocationSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Location
 
 
 class EventSerializer(serializers.ModelSerializer):

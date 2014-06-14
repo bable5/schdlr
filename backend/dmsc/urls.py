@@ -4,6 +4,7 @@ from rest_framework import viewsets, routers
 
 from schedule.models import Location, Resource, Event
 from schedule.feeds import EventFeed
+from schedule.serializers import LocationSerializer
 
 from django.contrib import admin
 
@@ -15,17 +16,18 @@ from schedule.views import EventList
 
 
 class LocationViewSet(viewsets.ModelViewSet):
-    model = Location
-    filter_fields = ('location', 'status')
+    queryset = Location.objects.all()
+    serializer_class = LocationSerializer
+
 
 class ResourceViewSet(viewsets.ModelViewSet):
     model = Resource
     filter_fields = ('resource_type', 'description', 'location')
 
+
 class EventViewSet(viewsets.ModelViewSet):
     model = Event
     filter_fields = ('location', 'visibility', 'status')
-
 
 
 router = routers.DefaultRouter()
