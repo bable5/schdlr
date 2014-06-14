@@ -11,6 +11,8 @@ import django_filters
 
 admin.autodiscover()
 
+from schedule.views import EventList
+
 
 class LocationViewSet(viewsets.ModelViewSet):
     model = Location
@@ -36,6 +38,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     (r'^ical/$', EventFeed()),
+    url(r'calendarevent/', EventList.as_view()),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api/docs/', include('rest_framework_swagger.urls')),

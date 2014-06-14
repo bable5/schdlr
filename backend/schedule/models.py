@@ -29,6 +29,11 @@ class Event(models.Model):
     contact_phone_number = models.CharField(max_length=11, blank=True)
     contact_email = models.CharField(max_length=255)
 
+    def title(self):
+        if self.visibility == 'private':
+            return '** Private **'
+        else:
+            return self.event_name
 
 class Location(models.Model):
     square_footage = models.IntegerField()
