@@ -4,4 +4,9 @@ backend:
   volumes:
    - backend:/code
   ports:
-   - 8000:8000
+   - "8000:8000"
+frontend:
+  build: frontend
+  command: sbin/nginx -c conf/nginx.conf
+  ports:
+   - "9000:80"
