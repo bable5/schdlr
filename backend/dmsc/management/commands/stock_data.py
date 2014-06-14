@@ -24,6 +24,7 @@ class Command(BaseCommand):
             location=location
         )
         event = Event.objects.create(
+            event_name='Testing Event',
             setup_start=datetime.now(),
             setup_end=datetime.now(),
             event_start=datetime.now(),

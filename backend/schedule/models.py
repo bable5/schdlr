@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Event(models.Model):
+    event_name = models.CharField(max_length=255, blank=False)
     setup_start = models.DateTimeField()
     setup_end = models.DateTimeField()
     event_start = models.DateTimeField()
