@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.utils import timezone
 from django.core.management.base import BaseCommand, CommandError
 
@@ -24,14 +26,18 @@ class Command(BaseCommand):
             description="Bose 5.1",
             location=location
         )
+
+        start = timezone.now()
+        end = start + timedelta(hours=1)
+
         event = Event.objects.create(
             event_name='Testing Event',
-            setup_start=timezone.now(),
+            setup_start=start,
             setup_end=timezone.now(),
             event_start=timezone.now(),
             event_end=timezone.now(),
             teardown_start=timezone.now(),
-            teardown_end=timezone.now(),
+            teardown_end=end,
             status='pending',
             visibility='public',
             location=location,
