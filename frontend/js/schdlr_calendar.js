@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    var baseCalendarUrl = 'http://localhost:8000/calendarevent/';
 
     //function getAllCalendarEventsForReal(){
     //    var schdlrAPI = "http://162.243.62.74/calendarevent";
@@ -56,11 +57,43 @@ $(document).ready(function() {
    // var x = getData() ;
    //$('#calendar').fullCalendar( 'renderEvent', x);
 
+    getSelectLocationIDs = function () {
+        ids = new Array();
 
+        $( 'select option:selected' ).each(function() {
+          ids.push( $(this).attr('value') );
+        });
+        return ids;
+    };
 
-    //$(".filter-btn").on("click", function(){
-    //   getAllCalendarEventsForReal();
-    //});
+    filterCalendarByLocation = function(locationIds) {
+        var eventUrl;
+        if (locationIds.length === 0) {
+            eventUrl = baseCalendarUrl;
+        } else {
+            eventUrl = baseCalendarUrl.substr(0, baseCalendarUrl.length-1) + '?location='
+            $(locationIds).each(function() {
+                eventUrl += this + ',';
+            });
+
+            // trim the last comma
+            eventUrl = eventUrl.substr(0, eventUrl.length - 1);
+        }
+        return eventUrl;
+    }
+
+    updateEventSource = function(eventSource) {
+        var cal = $('#calendar');
+        cal.fullCalendar('removeEvents');
+        cal.fullCalendar('addEventSource', eventSource);
+    }
+
+    $("#locations").submit(function(event){
+        event.preventDefault();
+        ids = getSelectLocationIDs();
+        var eventSource = filterCalendarByLocation(ids);
+        updateEventSource(eventSource);
+    });
 
 	$('#calendar').fullCalendar({
 		header: {
@@ -71,7 +104,7 @@ $(document).ready(function() {
 		defaultDate: '2014-06-14',
 		editable: false,
 		events: {
-			url: 'http://localhost:8000/calendarevent/',
+			url: baseCalendarUrl,
 			error: function() {
 				$('#script-warning').show();
 			}
