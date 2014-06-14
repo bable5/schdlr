@@ -2,8 +2,31 @@ $(document).ready(function() {
 
     // page is now ready, initialize the calendar...
 
+    var getAllCalendarEventsForReal = function(){
+        var schdlrAPI = "http://162.243.62.74/calendarevent";
+        $.getJSON( schdlrAPI, function( data ) {
+            var items = [];
+            $.each( data, function( key, val ) {
+                alert(key + " -- " + val);
+            });
+          });
+    }
     var getDataForReal = function(){
-        $().get()
+        var discipline = $(".discipline").val();
+        var location = $(".location").val();
+        var schdlrAPI = "http://162.243.62.74/calendarevent?location="+locaiton+"&discipline=" + discipline;
+        $.getJSON( schdlrAPI, function( data ) {
+            var items = [];
+            $.each( data, function( key, val ) {
+                alert(key + " -- " + val);
+//              items.push( "<li id='" + key + "'>" + val + "</li>" );
+            });
+            
+//            $( "<ul/>", {
+//              "class": "my-new-list",
+//              html: items.join( "" )
+//            }).appendTo( "body" );
+          });
     }
 
     var getData = function(){
@@ -43,7 +66,9 @@ $(document).ready(function() {
 
 
 
-
-
+    $(".filter-btn").on("click", function(){
+       getAllCalendarEventsForReal(); 
+    });
+    
 
 });
