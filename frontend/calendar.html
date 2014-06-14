@@ -102,12 +102,21 @@
                       </div>
                   </div>
 
+                    <!-- Location-->
+                  <div class="form-group">
+                      <label for="inputLocationId" class="col-sm-5 control-label">Location:</label>
+                      <div class="col-sm-5">
+                          <select class="form-control" id="inputLocationId">
+                              <option name="room1" value="room1">room1</option>
+                              <option name="room2" value="room2">room2</option>
+                          </select>
+                      </div>
+                  </div>
               </form>
-
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" type="submit">Save changes</button>
+              <button id="add-event-btn" type="button" class="btn btn-primary" type="submit">Save changes</button>
             </div>
           </div>
         </div>
@@ -120,9 +129,7 @@
         
 
 		<div class="container">
-
 			<div class="row">
-
 				<div class="col-sm-2 main">
 					<form id="locations" role="form" style="margin-top: 100px;">
 						<div class="form-group">
@@ -136,14 +143,10 @@
 
 				<div class="col-sm-10 sidebar">
 					<h1 class="cover-heading">DSM Social Calendar</h1>
-
 					<p class="lead">Go Spend Your Money!</p>
-
 					<div id='calendar'></div>
 				</div>
-
 			</div>
-
 		</div>
 
 

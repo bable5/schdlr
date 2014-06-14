@@ -116,4 +116,32 @@ $(document).ready(function() {
 		});
 		
 	}, 'json');    
+    
+    
+    
+    $("#add-event-btn").on("click", function(){
+        $.ajax({
+              type: "PUT",
+              url: "/event",
+              data: { event_name: "John",
+                  setup_start: "Boston",
+                  setup_end: "Boston",
+                  event_start: "Boston",
+                  event_end: "Boston",
+                  teardown_start: "Boston",
+                  teardown_end: "Boston",
+                  needed_reasources: "Boston",
+                  status: "Boston",
+                  visibility: "Boston",
+                  location: "Boston",
+                  contact_name: "Boston",
+                  contact_phone_number: "Boston",
+                  contact_email: "Boston",
+                  discipline: "Boston"
+              }
+            })
+              .done(function( msg ) {
+                alert( "new event created");
+              });
+    })
 });
