@@ -19,7 +19,8 @@ class EventList(generics.ListAPIView):
         qs = Event.objects.all()
 
         if self.request.GET.get('location'):
-            qs = qs.filter(location=int(self.request.GET.get('location')))
+            locations = [int(val) for val in self.request.GET.get('location').split(',')]
+            qs = qs.filter(location__in=locations)
 
         print str(qs)
 
