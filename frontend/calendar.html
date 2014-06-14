@@ -1,105 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>Cover Template for Bootstrap</title>
+		<title>Cover Template for Bootstrap</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Bootstrap core CSS -->
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="bootstrap/css/cover.css" rel="stylesheet">
-
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+		<!-- Custom styles for this template -->
+		<link href="bootstrap/css/cover.css" rel="stylesheet">
 
 
-    <link rel='stylesheet' href='fullcalendar/fullcalendar.css'/>
-    <link rel='stylesheet' href='css/schdlr_calendar.css'/>
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
 
 
-</head>
+		<link rel='stylesheet' href='fullcalendar/fullcalendar.css'/>
+		<link rel='stylesheet' href='css/schdlr_calendar.css'/>
 
-<body>
 
-<div class="site-wrapper">
+	</head>
 
-    <div class="site-wrapper-inner">
+	<body>
 
-        <div class="cover-container">
-<!--
-            <div class="masthead clearfix">
-                <div class="inner">
-                    <h3 class="masthead-brand">Cover</h3>
-                    <ul class="nav masthead-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-            </div>-->
-            <div class="on-the-left">
-                <div class="fliter-selectors">
-                    <div class="location-div">
-                        <span>Select a Location</span>
-                        <select class="location" multiple>
-                            <option>Spencer's Bedroom</option>
-                            <option>Your mom's house</option>
-                        </select>
-                    </div>
-                    <div class="discipline-div">
-                        <span>Select a Discipline</span>
-                        <select class="discipline" multiple>
-                            <option>music</option>
-                            <option>dance</option>
-                        </select>
-                    </div>
-                </div>
-                <input type="button" id="filter-btn" value="Filter">
-            </div>
-            
+		<div class="site-wrapper">
 
-            <div class="inner cover">
-                <h1 class="cover-heading">DSM Social Calendar</h1>
+			<div class="site-wrapper-inner">
 
-                <p class="lead">Go Spend Your Money!</p>
+				<div class="cover-container">
+					<form role="form">
+						<div class="form-group">
+							<label for="exampleInputEmail1">Location</label>
+							<select id="location" name="location" multiple class="form-control">
+							</select>
+						</div>
+						<button type="submit" class="btn btn-default">Filter</button>
+					</form>
 
-                <div id='calendar'></div>
-                <p class="lead">
-                    <a href="#" class="what-do-you-want-to-know btn btn-lg btn-default">What else do you want to know?</a>
-                </p>
-            </div>
-<!--
-            <div class="mastfoot">
-                <div class="inner">
-                    <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a
-                            href="https://twitter.com/mdo">@mdo</a>.</p>
-                </div>
-            </div>-->
+					<div class="on-the-left">
+						<div class="fliter-selectors">
+							<div class="location-div">
+								<span>Select a Location</span>
+								<select class="location" multiple>
+									<option>Spencer's Bedroom</option>
+									<option>Your mom's house</option>
+								</select>
+							</div>
+							<div class="discipline-div">
+								<span>Select a Discipline</span>
+								<select class="discipline" multiple>
+									<option>music</option>
+									<option>dance</option>
+								</select>
+							</div>
+						</div>
+						<input type="button" id="filter-btn" value="Filter">
+					</div>
 
-        </div>
 
-    </div>
+					<div class="inner cover">
+						<h1 class="cover-heading">DSM Social Calendar</h1>
 
-</div>
+						<p class="lead">Go Spend Your Money!</p>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"></script>
-<script src='fullcalendar/lib/moment.min.js'></script>
-<script src='fullcalendar/fullcalendar.js'></script>
-<script src='js/schdlr_calendar.js'></script>
-</body>
+						<div id='calendar'></div>
+						<p class="lead">
+						<a href="#" class="what-do-you-want-to-know btn btn-lg btn-default">What else do you want to know?</a>
+						</p>
+					</div>
+					<!--
+					<div class="mastfoot">
+						<div class="inner">
+							<p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a
+								href="https://twitter.com/mdo">@mdo</a>.</p>
+						</div>
+					</div>-->
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"></script>
+		<script src='fullcalendar/lib/moment.min.js'></script>
+		<script src='fullcalendar/fullcalendar.js'></script>
+		<script src='js/schdlr_calendar.js'></script>
+	</body>
 </html>

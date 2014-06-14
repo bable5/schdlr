@@ -62,26 +62,32 @@ $(document).ready(function() {
     //   getAllCalendarEventsForReal();
     //});
 
-    $(document).ready(function() {
-		$('#calendar').fullCalendar({
-			header: {
-				left: 'prev,next today',
-				center: 'title',
-				right: 'month,agendaWeek,agendaDay'
-			},
-			defaultDate: '2014-06-14',
-			editable: true,
-			events: {
-				url: 'http://localhost:8000/calendarevent/',
-				error: function() {
-					$('#script-warning').show();
-				}
-			},
-			loading: function(bool) {
-				$('#loading').toggle(bool);
+	$('#calendar').fullCalendar({
+		header: {
+			left: 'prev,next today',
+			center: 'title',
+			right: 'month,agendaWeek,agendaDay'
+		},
+		defaultDate: '2014-06-14',
+		editable: true,
+		events: {
+			url: 'http://localhost:8000/calendarevent/',
+			error: function() {
+				$('#script-warning').show();
 			}
-		});
-
+		},
+		loading: function(bool) {
+			$('#loading').toggle(bool);
+		}
 	});
+
+	$.get('http://localhost:8000/location/', function(data) {
+		var select = $('#location').empty();
+		console.log(data);
+		$.each(data, function(i, item){
+			select.append("<option value='" + item.id + "'>" + item.location_name + "</option>");
+		});
+		
+	}, 'json');
 
 });
