@@ -15,6 +15,7 @@ class Event(models.Model):
 
 class Location(models.Model):
     personel = models.ForeignKey('User')
+    square_footage = models.IntegerField
     capacity = models.IntegerField
     location_name = models.CharField(length=255, blank=False)
     availability = models.CharField(length=255, blank=False)
