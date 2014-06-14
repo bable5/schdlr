@@ -1,0 +1,2 @@
+forge "http://forge.puppetlabs.com"
+mod "garethr/docker", "0.12.0"
