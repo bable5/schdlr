@@ -57,6 +57,7 @@ ROOT_URLCONF = 'dmsc.urls'
 
 WSGI_APPLICATION = 'dmsc.wsgi.application'
 
+USE_TZ = True
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases

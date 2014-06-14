@@ -1,5 +1,4 @@
-from datetime import datetime
-
+from django.utils import timezone
 from django.core.management.base import BaseCommand, CommandError
 
 from django.contrib.auth.models import User
@@ -25,12 +24,12 @@ class Command(BaseCommand):
         )
         event = Event.objects.create(
             event_name='Testing Event',
-            setup_start=datetime.now(),
-            setup_end=datetime.now(),
-            event_start=datetime.now(),
-            event_end=datetime.now(),
-            teardown_start=datetime.now(),
-            teardown_end=datetime.now(),
+            setup_start=timezone.now(),
+            setup_end=timezone.now(),
+            event_start=timezone.now(),
+            event_end=timezone.now(),
+            teardown_start=timezone.now(),
+            teardown_end=timezone.now(),
             status='pending',
             visibility='public',
             location=location,
