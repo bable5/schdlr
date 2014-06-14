@@ -136,22 +136,15 @@ var getEventDetails = function(calEvent){
     var eventDetailsLink = baseEventDetailsUrl+calEvent.id+"/";
     console.log(eventDetailsLink);
     
-    $.get(eventDetailsLink, function(data) {
-		var select = $('#discipline').empty();
-		console.log(data);
-		$.each(data, function(i, item){
-			select.append("<option value='" + item.id + "'>" + item.name + "</option>");
-		});
-        
-        console.log("response");
-        console.log(response);
-        $("#inputEventName").val("Hack-a-thon");
-        $("#inputEventStartTime").val("14/06/2014");
-        $("#inputEventEndTime").val("14/06/2014");
-        $("#makeEventPrivate").prop('checked', true);
-        $("#inputCustomerName").val("Johny Appleseed");
-        $("#inputCustomerPhone").val("555-555-5555");
-        $("#inputCustomerEmailAddress").val("hack@aol.com");
-        $("#inputLocationId").find('option:[value='+"'room2'"+']').attr('selected',1);
+    $.get(eventDetailsLink, function(item) {
+		console.log(item);
+            $("#inputEventName").val(item.event_name);
+            $("#inputEventStartTime").val(item.event_start);
+            $("#inputEventEndTime").val(item.event_end);
+            $("#makeEventPrivate").prop('checked', true);
+            $("#inputCustomerName").val(item.contact_name);
+            $("#inputCustomerPhone").val(item.contact_phone_number);
+            $("#inputCustomerEmailAddress").val(item.contact_email);
+            $("#inputLocationId").find('option:[value='+"'room2'"+']').attr('selected',1);
 	}, 'json'); 
 }
