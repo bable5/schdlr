@@ -57,7 +57,7 @@ class Command(BaseCommand):
 
         start = timezone.now() - timedelta(hours=1)
         Event.objects.create(
-            event_name='Testing Event {}'.format(i),
+            event_name='My Testing Event',
             setup_start=start,
             setup_end=start + timedelta(minutes=30),
             event_start=start + timedelta(minutes=30),
