@@ -1,3 +1,4 @@
 *.pyc
 puppet/modules
 *.lock
+.idea
