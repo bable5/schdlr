@@ -30,6 +30,9 @@ and open the template in the editor.
 .location-div, .discipline-div{
     float: left;
 }
+#location{
+    height: 400px;
+}
 
 #filter-btn{
     color: black;

@@ -1,46 +1,9 @@
+var baseCalendarUrl = 'http://162.243.62.74:8000/calendarevent/';
+var baseLocationsUrl = 'http://162.243.62.74:8000/location/';
+var baseDisciplinesUrl = 'http://162.243.62.74:8000/discipline/';
+var baseEventDetailsUrl = 'http://162.243.62.74:8000/event/';
+
 $(document).ready(function() {
-    var baseCalendarUrl = 'http://localhost:8000/calendarevent/';
-
-    //function getAllCalendarEventsForReal(){
-    //    var schdlrAPI = "http://162.243.62.74/calendarevent";
-    //    $.getJSON( schdlrAPI, function( data ) {
-    //        var items = [];
-    //        $.each( data, function( key, val ) {
-    //            alert(key + " -- " + val);
-    //        });
-    //      });
-    //}
-    //function getDataForReal(){
-    //    var discipline = $(".discipline").val();
-    //    var location = $(".location").val();
-    //    var schdlrAPI = "http://localhost:8000/calendarevent/?location="+locaiton+"&discipline=" + discipline;
-    //    $.getJSON( schdlrAPI, function( data ) {
-    //        var items = [];
-//  //          $( "<ul/>", {
-//  //            "class": "my-new-list",
-//  //            html: items.join( "" )
-//  //          }).appendTo( "body" );
-    //      });
-    //}
-
-    
-    
-    
-    //$('#calendar').fullCalendar({
-    //    header: {
-    //        left: 'prev,next today',
-    //        center: 'title',
-    //        right: 'month,agendaWeek,agendaDay'
-    //    },
-    //    dayClick: function() {
-    //        alert('a day has been clicked!');
-    //    }
-    //});
-    
-
-   // var x = getData() ;
-   //$('#calendar').fullCalendar( 'renderEvent', x);
-
     getSelectLocationIDs = function () {
         ids = new Array();
 
@@ -105,16 +68,33 @@ $(document).ready(function() {
 		},
         dayClick: function() {
             $('#AddNewEventModal').modal('show');
+        },
+        eventClick: function(calEvent, jsEvent, view) {
+
+//        alert('Event: ' + calEvent.title);
+//        alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+//        alert('View: ' + view.name);
+        
+            console.log(calEvent);
+            $('#AddNewEventModal').modal('show');
+            getEventDetails(calEvent);
         }
 	});
 
-	$.get('http://localhost:8000/location/', function(data) {
+	$.get(baseLocationsUrl, function(data) {
 		var select = $('#location').empty();
 		console.log(data);
 		$.each(data, function(i, item){
 			select.append("<option value='" + item.id + "'>" + item.location_name + "</option>");
 		});
-		
+	}, 'json');    
+
+	$.get(baseDisciplinesUrl, function(data) {
+		var select = $('#discipline').empty();
+		console.log(data);
+		$.each(data, function(i, item){
+			select.append("<option value='" + item.id + "'>" + item.name + "</option>");
+		});
 	}, 'json');    
     
     
@@ -144,4 +124,31 @@ $(document).ready(function() {
                 alert( "new event created");
               });
     })
+    
+    
 });
+
+
+var getEventDetails = function(calEvent){
+    var eventDetailsLink = baseEventDetailsUrl+calEvent.id+"/";
+    console.log(eventDetailsLink);
+    
+    $.get(eventDetailsLink, function(data) {
+		var select = $('#discipline').empty();
+		console.log(data);
+		$.each(data, function(i, item){
+			select.append("<option value='" + item.id + "'>" + item.name + "</option>");
+		});
+        
+        console.log("response");
+        console.log(response);
+        $("#inputEventName").val("Hack-a-thon");
+        $("#inputEventStartTime").val("14/06/2014");
+        $("#inputEventEndTime").val("14/06/2014");
+        $("#makeEventPrivate").prop('checked', true);
+        $("#inputCustomerName").val("Johny Appleseed");
+        $("#inputCustomerPhone").val("555-555-5555");
+        $("#inputCustomerEmailAddress").val("hack@aol.com");
+        $("#inputLocationId").find('option:[value='+"'room2'"+']').attr('selected',1);
+	}, 'json'); 
+}
