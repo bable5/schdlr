@@ -2,13 +2,11 @@ $(document).ready(function() {
 
     // page is now ready, initialize the calendar...
 
-    $('#calendar').fullCalendar({
-        dayClick: function() {
-            alert('a day has been clicked!');
-        }
-    });
+    var getDataForReal = function(){
+        $().get()
+    }
 
-var getData = function(){
+    var getData = function(){
 
         return [{
             events: [
@@ -25,6 +23,20 @@ var getData = function(){
             textColor: 'black'
         }]
     }
+    
+    
+    
+    $('#calendar').fullCalendar({
+        header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+        },
+        dayClick: function() {
+            alert('a day has been clicked!');
+        }
+    });
+    
 
     var x = getData() ;
    $('#calendar').fullCalendar( 'renderEvent', x);

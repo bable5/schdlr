@@ -2,3 +2,5 @@
 puppet/modules
 *.lock
 .idea
+/nbproject/private/
+/nbproject/
