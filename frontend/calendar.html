@@ -25,6 +25,7 @@
 
 
     <link rel='stylesheet' href='fullcalendar/fullcalendar.css'/>
+    <link rel='stylesheet' href='css/schdlr_calendar.css'/>
 
 
 </head>
@@ -36,7 +37,7 @@
     <div class="site-wrapper-inner">
 
         <div class="cover-container">
-
+<!--
             <div class="masthead clearfix">
                 <div class="inner">
                     <h3 class="masthead-brand">Cover</h3>
@@ -46,26 +47,45 @@
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
+            </div>-->
+            <div class="on-the-left">
+                <div class="fliter-selectors">
+                    <div class="location-div">
+                        <span>Select a Location</span>
+                        <select class="location" multiple>
+                            <option>Spencer's Bedroom</option>
+                            <option>Your mom's house</option>
+                        </select>
+                    </div>
+                    <div class="discipline-div">
+                        <span>Select a Discipline</span>
+                        <select class="discipline" multiple>
+                            <option>music</option>
+                            <option>dance</option>
+                        </select>
+                    </div>
+                </div>
+                <input type="button" id="filter-btn" value="Filter">
             </div>
+            
 
             <div class="inner cover">
-                <h1 class="cover-heading">Cover your page.</h1>
+                <h1 class="cover-heading">DSM Social Calendar</h1>
 
-                <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download,
-                    edit the text, and add your own fullscreen background photo to make it your own.</p>
+                <p class="lead">Go Spend Your Money!</p>
 
                 <div id='calendar'></div>
                 <p class="lead">
-                    <a href="#" class="btn btn-lg btn-default">Learn more</a>
+                    <a href="#" class="what-do-you-want-to-know btn btn-lg btn-default">What else do you want to know?</a>
                 </p>
             </div>
-
+<!--
             <div class="mastfoot">
                 <div class="inner">
                     <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a
                             href="https://twitter.com/mdo">@mdo</a>.</p>
                 </div>
-            </div>
+            </div>-->
 
         </div>
 
@@ -77,9 +97,7 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<!--<script src="bootstrap/js/bootstrap.min.js"></script>-->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"></script>
-<!--<script src="fullcalendar/js/docs.min.js"></script>-->
 <script src='fullcalendar/lib/moment.min.js'></script>
 <script src='fullcalendar/fullcalendar.js'></script>
 <script src='js/schdlr_calendar.js'></script>
