@@ -12,22 +12,20 @@ class Event(models.Model):
     needed_resources = models.ManyToManyField('Resource')
     status = models.CharField(max_length=255, blank=False)
     visibility = models.CharField(max_length=255, blank=False)
-    event_organizer = models.ManyToManyField('Organization')
     location = models.ForeignKey('Location')
+    contact_name = models.CharField(max_length=255, blank=False)
+    contact_phone_number = models.CharField(max_length=11, blank=True)
+    contact_email = models.CharField(max_length=255)
 
 
 class Location(models.Model):
-    personel = models.ForeignKey(User)
     square_footage = models.IntegerField()
     capacity = models.IntegerField()
     location_name = models.CharField(max_length=255, blank=False)
     availability = models.CharField(max_length=255, blank=False)
-
-
-class Organization(models.Model):
-    name = models.CharField(max_length=255, blank=False)
-    phone_number = models.CharField(max_length=11, blank=True)
-    email = models.CharField(max_length=255)
+    contact_name = models.CharField(max_length=255, blank=False)
+    contact_phone_number = models.CharField(max_length=11, blank=True)
+    contact_email = models.CharField(max_length=255)
 
 
 class Resource(models.Model):
