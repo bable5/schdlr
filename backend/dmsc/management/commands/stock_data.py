@@ -64,7 +64,7 @@ class Command(BaseCommand):
                   'Handball' : { 'sstart' : datetime.datetime(2014, 6, 9, 11, 0, 1), 'status' : 'pending', 'location' : 'Handball Court' },
                   'Art Class' : { 'sstart' : datetime.datetime(2014, 6, 10, 16, 0, 1), 'status' : 'pending', 'location' : 'Studio A' },
                   'Charity Fundraiser' : { 'sstart' : datetime.datetime(2014, 6, 9, 15, 0, 1), 'status' : 'confirmed', 'location' : 'ALS Association Iowa Office' },
-                  'Office Meeting' : { 'sstart' : datetime.datetime(2014, 6, 10, 18, 0, 1), 'status' : 'pending', 'location' : 'RTI Office' },
+                  'Office Meeting' : { 'sstart' : datetime.datetime(2014, 6, 10, 18, 0, 1), 'status' : 'pending', 'visibility':'private', 'location' : 'RTI Office' },
                   'Sushi Class' : { 'sstart' : datetime.datetime(2014, 6, 11, 8, 0, 1), 'status' : 'confirmed', 'location' : 'Capres Kafe' },
                   'Some Recording Session' : { 'sstart' : datetime.datetime(2014, 6, 11, 10, 0, 1), 'status' : 'confirmed', 'location' : 'Studio A' },
                   'Music Class' : { 'sstart' : datetime.datetime(2014, 6, 11, 16, 0, 1), 'status' : 'pending', 'location' : 'Blue Moon Recording Studio' },
@@ -88,7 +88,7 @@ class Command(BaseCommand):
                 teardown_start=events[event]['sstart'] + timedelta(hours=2.5),
                 teardown_end=events[event]['sstart'] + timedelta(hours=3),
                 status=events[event]['status'],
-                visibility='public',
+                visibility= 'private' if event == 'Office Meeting' else 'public',
                 location=Location.objects.get(location_name = events[event]['location']),
                 contact_name='John Richard',
                 contact_email='john.richard@gmail.com'
