@@ -30,6 +30,6 @@ class Location(models.Model):
 
 class Resource(models.Model):
     is_fixed = models.BooleanField()
-    resourceType = models.CharField(max_length=255, blank=False)
+    resource_type = models.CharField(max_length=255, blank=False)
     description = models.CharField(max_length=255, blank=True)
     location = models.ForeignKey(Location, null=True)
