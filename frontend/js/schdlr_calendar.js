@@ -23,22 +23,6 @@ $(document).ready(function() {
     //      });
     //}
 
-    //var getData = function(){
-    //    return [{
-    //        events: [
-    //            {
-    //                title: 'Event1',
-    //                start: '2014-06-13'
-    //            },
-    //            {
-    //                title: 'Event2',
-    //                start: '2014-06-14'
-    //            }
-    //        ],
-    //        color: 'yellow',
-    //        textColor: 'black'
-    //    }]
-    //}
     
     
     
