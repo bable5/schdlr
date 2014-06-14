@@ -1,6 +1,18 @@
 from django.db import models
 
 
+STATUS_CHOICES = (
+    ('reserved', 'Reserved'),
+    ('confirmed', 'Confirmed'),
+    ('cancelled', 'Cancelled'),
+)
+
+VISIBILITY_CHOICES = (
+    ('public', 'Public'),
+    ('private', 'Private'),
+)
+
+
 class Event(models.Model):
     event_name = models.CharField(max_length=255, blank=False)
     setup_start = models.DateTimeField()
@@ -10,8 +22,8 @@ class Event(models.Model):
     teardown_start = models.DateTimeField()
     teardown_end = models.DateTimeField()
     needed_resources = models.ManyToManyField('Resource')
-    status = models.CharField(max_length=255, blank=False)
-    visibility = models.CharField(max_length=255, blank=False)
+    status = models.CharField(default='reserved', choices=STATUS_CHOICES, max_length=255, blank=False)
+    visibility = models.CharField(default='public', choices=VISIBILITY_CHOICES, max_length=255, blank=False)
     location = models.ForeignKey('Location')
     contact_name = models.CharField(max_length=255, blank=False)
     contact_phone_number = models.CharField(max_length=11, blank=True)
