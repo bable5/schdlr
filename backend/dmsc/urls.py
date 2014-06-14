@@ -32,7 +32,7 @@ class EventViewSet(viewsets.ModelViewSet):
 
 class DisciplineViewSet(viewsets.ModelViewSet):
     model = Discipline
-    filter_fields = ('name')
+    filter_fields = ('name','description')
 
 
 router = routers.DefaultRouter()
