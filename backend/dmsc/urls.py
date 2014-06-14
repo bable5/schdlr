@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 
 from rest_framework import viewsets, routers
 
-from schedule.models import Location, Resource
+from schedule.models import Location, Resource, Event
 
 from django.contrib import admin
 admin.autodiscover()
@@ -16,9 +16,14 @@ class ResourceViewSet(viewsets.ModelViewSet):
     model = Resource
 
 
+class EventViewSet(viewsets.ModelViewSet):
+    model = Event
+
+
 router = routers.DefaultRouter()
 router.register(r'location', LocationViewSet)
 router.register(r'resource', ResourceViewSet)
+router.register(r'event', EventViewSet)
 
 urlpatterns = patterns('',
     url(r'^', include(router.urls)),

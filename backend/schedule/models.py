@@ -3,12 +3,12 @@ from django.contrib.auth.models import User
 
 
 class Event(models.Model):
-    setup_start = models.DateField()
-    setup_end = models.DateField()
-    event_start = models.DateField()
-    event_end = models.DateField()
-    teardown_start = models.DateField()
-    teardown_end = models.DateField()
+    setup_start = models.DateTimeField()
+    setup_end = models.DateTimeField()
+    event_start = models.DateTimeField()
+    event_end = models.DateTimeField()
+    teardown_start = models.DateTimeField()
+    teardown_end = models.DateTimeField()
     needed_resources = models.ManyToManyField('Resource')
     status = models.CharField(max_length=255, blank=False)
     visibility = models.CharField(max_length=255, blank=False)
