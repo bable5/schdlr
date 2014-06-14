@@ -1,5 +1,5 @@
 //var host = "http://localhost"
-var host = http://162.243.62.74'
+var host = "http://162.243.62.74";
 var port = "8000";
 var baseCalendarUrl = host + ':'+port+'/calendarevent/';
 var baseLocationsUrl = host + ':'+port+'/location/';
