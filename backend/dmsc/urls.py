@@ -12,7 +12,7 @@ import django_filters
 
 admin.autodiscover()
 
-from schedule.views import EventList
+from schedule.views import EventList, OpenLocationsList
 
 
 class LocationViewSet(viewsets.ModelViewSet):
@@ -41,6 +41,7 @@ urlpatterns = patterns('',
 
     (r'^ical/$', EventFeed()),
     url(r'calendarevent/', EventList.as_view()),
+    url(r'openlocations/', OpenLocationsList.as_view()),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api/docs/', include('rest_framework_swagger.urls')),
