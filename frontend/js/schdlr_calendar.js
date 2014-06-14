@@ -102,7 +102,10 @@ $(document).ready(function() {
 					$('<div class="" style="margin-left: 10px;"/>').text("("+event.location_name+")")
 				);
 			}
-		}
+		},
+        dayClick: function() {
+            $('#AddNewEventModal').modal('show');
+        }
 	});
 
 	$.get('http://localhost:8000/location/', function(data) {
@@ -112,6 +115,5 @@ $(document).ready(function() {
 			select.append("<option value='" + item.id + "'>" + item.location_name + "</option>");
 		});
 		
-	}, 'json');
-
+	}, 'json');    
 });
