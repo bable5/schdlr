@@ -78,6 +78,13 @@ $(document).ready(function() {
 		},
 		loading: function(bool) {
 			$('#loading').toggle(bool);
+		},
+		eventRender: function(event, el) {
+			if (event.start.hasZone()) {
+				el.find('.fc-event-title').after(
+					$('<div class="" style="margin-left: 10px;"/>').text("("+event.location_name+")")
+				);
+			}
 		}
 	});
 

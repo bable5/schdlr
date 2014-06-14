@@ -31,9 +31,12 @@ class Event(models.Model):
 
     def title(self):
         if self.visibility == 'private':
-            return "** Private ** ({})".format(self.location.location_name)
+            return u"** Private **"
         else:
-            return "{} ({})".format(self.event_name, self.location.location_name)
+            return u"{}".format(self.event_name)
+
+    def location_name(self):
+        return self.location.location_name
 
 
 class Location(models.Model):

@@ -47,7 +47,7 @@ class Command(BaseCommand):
                 event_start=timezone.now(),
                 event_end=timezone.now(),
                 teardown_start=timezone.now(),
-                teardown_end=date + timedelta(hours=1),
+                teardown_end=date + timedelta(hours=2),
                 status='pending',
                 visibility='public' if i != 1 else 'private',
                 location=Location.objects.get(location_name='Location 1'),
