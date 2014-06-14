@@ -1,8 +1,6 @@
 from django.db import models
 
 class Event(models.Model):
-    contacts = models.ManyToMany(Contact)
-    capacity = models.IntegerField
     setup_start = models.DateField
     setup_end = model.DateField
     event_start = model.DateField
@@ -12,10 +10,12 @@ class Event(models.Model):
     needed_resources = models.ManyToMany(Resource)
     status = models.CharField(length=255, blank=False)
     visibility = models.CharField(length=255, blank=False)
-    event_organizer = models.ForeignKey(Organization)
+    event_organizer = models.ManyToMany(Organization)
+    location = models.ForeignKey(Location)
 
 class Location(models.Model):
     personel = models.ForeignKey('User')
+    capacity = models.IntegerField
     location_name = models.CharField(length=255, blank=False)
     availability = models.CharField(length=255, blank=False)
 
