@@ -1,7 +1,8 @@
-var baseCalendarUrl = 'http://162.243.62.74:8000/calendarevent/';
-var baseLocationsUrl = 'http://162.243.62.74:8000/location/';
-var baseDisciplinesUrl = 'http://162.243.62.74:8000/discipline/';
-var baseEventDetailsUrl = 'http://162.243.62.74:8000/event/';
+var port = "8000";
+var baseCalendarUrl = 'http://162.243.62.74:'+port+'/calendarevent/';
+var baseLocationsUrl = 'http://162.243.62.74:'+port+'/location/';
+var baseDisciplinesUrl = 'http://162.243.62.74:'+port+'/discipline/';
+var baseEventDetailsUrl = 'http://162.243.62.74:'+port+'/event/';
 
 $(document).ready(function() {
     getSelectLocationIDs = function () {
