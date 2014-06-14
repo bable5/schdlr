@@ -15,18 +15,36 @@ class Command(BaseCommand):
         admin.set_password('admin')
         admin.save()
 
-        for i in range(5):
+        LocalLocationData={ 'Capres Kafe': { 'letterMap': 'B', 'description' : 'desc goes here', 'capacity': 100, 'square_footage': 1000, 'price' : 100} ,
+                            'Viaduct Gallery': {'letterMap': 'C', 'description' : 'desc goes here', 'capacity': 100, 'square_footage': 1000, 'price' : 100},
+                            'Handball Court': {'letterMap': 'E', 'description' : 'This light-filled space is beautifully ', 'square_footage': 1000, 'capacity': 100, 'price': 50},
+                            'Movement Room': {'letterMap': 'F', 'description' : 'desc goes here', 'capacity': 100, 'square_footage': 1000, 'price' : 100},
+                            'Art Studio': {'letterMap': 'G', 'description' : 'desc goes here', 'capacity': 100,  'square_footage': 1000, 'price' : 100},
+                            'Studio A': {'letterMap': 'Z', 'description': 'This brand new space', 'square_footage': 1000, 'capacity': 25, 'price' : 30},
+                            'Studio B & C': {'letterMap': 'Y', 'description': '', 'capacity': 20, 'square_footage': 1000, 'price' : 30},
+                            'Workshop': {'letterMap': 'H', 'description' : 'desc goes here', 'capacity': 100, 'square_footage': 1000, 'price' : 100},
+                            'Blue Moon Recording Studio': {'letterMap': 'I', 'description' : 'desc goes here', 'capacity': 100, 'square_footage': 1000, 'price' : 100},
+                            'Stage West Offic': {'letterMap': 'J', 'description' : 'desc goes here', 'capacity': 100, 'square_footage': 1000, 'price' : 100},
+                            'ALS Association Iowa Office': {'letterMap': 'K', 'description' : 'Office', 'capacity': 100, 'square_footage': 1000, 'price' : 100},
+                            'Civic Music Association Office': {'letterMap': 'L', 'description' : 'Office', 'capacity': 100, 'square_footage': 1000, 'price' : 100},
+                            'RTI Office': {'letterMap': 'M', 'description' : 'Office', 'capacity': 100, 'square_footage': 1000, 'price' : 100},
+                            'Social Club Office': {'letterMap': 'N', 'description' : 'Office', 'capacity': 100, 'square_footage': 1000, 'price' : 100}
+        }
+
+        for loc_name in LocalLocationData.iterkeys():
+            import logging
+            logging.error(LocalLocationData[loc_name])
             Location.objects.get_or_create(
-                location_name='Location {}'.format(i),
-                square_footage=100,
-                capacity=100
+                location_name=loc_name,
+                square_footage=LocalLocationData[loc_name]['square_footage'],
+                capacity=LocalLocationData[loc_name]['capacity'],
             )
 
         Resource.objects.get_or_create(
             is_fixed=True,
             resource_type="speakers",
             description="Bose 5.1",
-            location=Location.objects.get(location_name='Location 1')
+            location=Location.objects.get(location_name='Handball Court')
         )
 
         _1 = timezone.now()
@@ -50,7 +68,7 @@ class Command(BaseCommand):
                 teardown_end=date + timedelta(hours=2),
                 status='pending',
                 visibility='public' if i != 1 else 'private',
-                location=Location.objects.get(location_name='Location 1'),
+                location=Location.objects.get(location_name='Viaduct Gallery'),
                 contact_name='John Richard',
                 contact_email='john.richard@gmail.com'
             )
@@ -66,7 +84,7 @@ class Command(BaseCommand):
             teardown_end=start + timedelta(hours=3),
             status='pending',
             visibility='public' if i != 1 else 'private',
-            location=Location.objects.get(location_name='Location 1'),
+            location=Location.objects.get(location_name='Studio B & C'),
             contact_name='John Richard',
             contact_email='john.richard@gmail.com'
         )
